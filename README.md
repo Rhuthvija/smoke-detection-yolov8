@@ -8,29 +8,79 @@ README.md → This document explains the structure and purpose of the repository
 🧠 Project Summary
 During this internship, I explored the following:
 
-Basics of Machine Learning
-Understanding YOLO and object detection
-Setting up local and remote repositories with Git and GitHub
-Working with VS Code and terminal commands
-🖥️ My Setup
-Device: MacBook Air M4
-Tools Used: VS Code, Git, Python
-Environment Path: /Users/ruby/internship_inML
-📸 Visuals
-Below are a few images from my internship progress:
+# task 1: Object Detection and Segmentation using YOLOv8
 
-Classroom Office
-
-Save the file (⌘ + S).
-Run these commands in your VS Code terminal:
-git add README.md
-git commit -m "Added README description and images"
-git push origin main
-
+This repository contains my work for the **Machine Learning Internship** project — focusing on **object detection and segmentation** using the **YOLOv8** model from Ultralytics.
 
 ---
 
-## 🎥 Video Detection using YOLOv8
+## 🚀 Project Overview
+
+The goal of this project is to perform **object detection and segmentation** on real-world images using the YOLOv8 model.
+
+### Tasks Completed:
+
+* Installed and configured the YOLOv8 environment
+* Ran object detection on sample images (`classroom.jpg`, `office.jpg`)
+* Visualized bounding boxes and segmentation masks
+* Compared detection vs segmentation results
+
+---
+
+## 🧩 Tools & Libraries
+
+| Tool                   | Purpose                         |
+| ---------------------- | ------------------------------- |
+| **Python 3.x**         | Programming language            |
+| **Ultralytics YOLOv8** | Object detection & segmentation |
+| **OpenCV**             | Image processing                |
+| **Matplotlib**         | Visualization                   |
+| **NumPy**              | Array operations                |
+
+---
+
+## 📁 Repository Structure
+
+```
+internship_inML/
+│
+├── code/
+│   ├── detection_classroom.py
+│   ├── segmentation_office.py
+│
+├── images/
+│   ├── classroom.jpg
+│   ├── office.jpg
+│   └── results/
+│       ├── classroom_detected.jpg
+│       ├── office_segmented.jpg
+│
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📷 Sample Results
+
+| Image                  
+| ---------------------- 
+| classroom_detected.jpg 
+| office_segmented.jpg   
+---
+
+## 🧠 Next Steps
+
+* Experiment with different YOLOv8 models (e.g., `yolov8m`, `yolov8l`)
+* Evaluate performance using metrics like Precision, Recall, and mAP
+* Try real-time detection using webcam feed
+
+---
+
+
+
+
+## task 2:  Video Detection using YOLOv8
 
 In this section, we take a short video clip and perform object detection frame-by-frame.
 
@@ -71,4 +121,5 @@ ffmpeg -framerate 24 -i runs/detect/predict/frame_%04d.jpg -c:v libx264 -pix_fmt
 
 This demonstrates how YOLOv8 can handle not just static images, but dynamic video streams by processing frames in sequence.
 
+*Created and maintained by [Rhuthvija](https://github.com/Rhuthvija)* ✨
 
