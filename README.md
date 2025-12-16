@@ -129,8 +129,14 @@ This demonstrates how YOLOv8 can handle not just static images, but dynamic vide
 ## vision task: Outdoor Smoke Detection using YOLOv8
 
 ### Problem Statement
-Air pollution due to outdoor smoke from factories, vehicles, and wildfires poses serious risks to public health and the environment.  
-The objective of this project is to automatically detect outdoor smoke in video streams using computer vision, with minimal human intervention.
+Outdoor smoke originating from factories, vehicles, and wildfires contributes significantly to air pollution and poses serious risks to human health and the environment.
+The goal of this project is to design a computer vision system that can automatically detect outdoor smoke in videos, with minimal human intervention and high reliability.
+
+###Project Objective
+Detect smoke in real-world outdoor videos
+Train a custom object detection model using transfer learning
+Validate the model on unseen videos
+Produce a single consolidated demo video as proof of performance
 
 ### Approach
 1. Collected real-world outdoor smoke videos (factory emissions, vehicular smoke, wildfire smoke).
@@ -140,6 +146,63 @@ The objective of this project is to automatically detect outdoor smoke in video 
 5. Performed transfer learning using a pre-trained YOLOv8 model.
 6. Ran object detection on multiple unseen videos.
 7. Merged all processed outputs into a single demonstration video.
+
+### Frame Extraction
+Used FFmpeg to extract frames from videos.
+Special care was taken to avoid near-duplicate frames (high FPS causes overfitting).
+Selected diverse frames manually to improve generalization.
+
+### Annotation (Major Challenge)
+
+Installed and used Label Studio for manual annotation.
+Labeled smoke regions using bounding boxes.
+One major challenge faced was:
+Configuring Label Studio to correctly load local image paths
+Avoiding over-annotation of visually similar frames
+Final dataset consisted of ~90+ carefully annotated images.
+
+### Dataset Preparation
+
+Converted annotations into YOLO format.
+Organized dataset into:
+images/train, images/val
+labels/train, labels/val
+Created a custom data.yaml file for training.
+
+### Repository Structure (Explanation)
+├── data.yaml
+├── yolov8n.pt
+├── final_output_smoke_detection.mp4
+├── runs/
+│   └── detect/
+│       └── train6/
+│           └── weights/
+│               ├── best.pt
+│               └── last.pt
+└── README.md
+
+### File Explanations
+data.yaml
+Defines dataset paths, number of classes, and class names for YOLO training.
+yolov8n.pt
+Pre-trained YOLOv8 model used as the base for transfer learning.
+runs/detect/train6/weights/best.pt
+Final trained smoke detection model.
+final_output_smoke_detection.mp4
+Merged output video demonstrating smoke detection across multiple real-world scenarios.
+
+⚠️ Note on Missing Files (Important)
+Due to GitHub file size limitations, the following folders are not uploaded:
+images/
+labels/
+Raw extracted frames
+
+These folders together exceed GitHub’s size limits.
+However, the complete dataset was used locally for:
+Annotation
+Training
+Validation
+and is fully reflected in the final trained model and output video.
 
 ### Tools & Technologies
 - Python
@@ -152,6 +215,14 @@ The objective of this project is to automatically detect outdoor smoke in video 
 ### Results
 The trained model is able to detect outdoor smoke across different scenarios including industrial areas, vehicles, and wildfires.  
 The final output video demonstrates consistent smoke detection across multiple real-world clips.
+This project demonstrates the practical challenges of real-world computer vision beyond curated datasets.
+
+### Key Learnings
+
+Dataset quality is more important than dataset size.
+Annotation is the most time-consuming and critical step.
+Debugging dataset paths and training configurations is a core ML skill.
+End-to-end pipelines are significantly harder than running pre-trained demos.
 
 ### Output
 - Final merged video: `final_output_smoke_detection.mp4`
