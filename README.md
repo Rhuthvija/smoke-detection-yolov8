@@ -120,7 +120,7 @@ ffmpeg -framerate 24 -i runs/detect/predict/frame_%04d.jpg -c:v libx264 -pix_fmt
 ### 🧾 Output
 
 * **Input video:** `input.mp4`
-* **Processed video:** `output.mp4`
+* **Processed video:** `output_peopleWalking.mp4`
 
 This demonstrates how YOLOv8 can handle not just static images, but dynamic video streams by processing frames in sequence.
 
