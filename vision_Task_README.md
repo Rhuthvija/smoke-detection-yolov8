@@ -10,14 +10,14 @@ Extracted diverse frames from videos using FFmpeg.
 Annotated smoke regions manually using Label Studio.
 Created a custom YOLO-format dataset (train/validation split).
 Performed transfer learning using a pre-trained YOLOv8 model.
-Ran object detection on multiple unseen videos.
+Added object tracking and ran detection on the source clips.
 Merged all processed outputs into a single demonstration video.
 
 Frame Extraction
 Used FFmpeg to extract frames from videos. Special care was taken to avoid near-duplicate frames (high FPS causes overfitting). Selected diverse frames manually to improve generalization.
 
 Annotation (Major Challenge)
-Installed and used Label Studio for manual annotation. Labeled smoke regions using bounding boxes. One major challenge faced was: Configuring Label Studio to correctly load local image paths Avoiding over-annotation of visually similar frames Final dataset consisted of ~90+ carefully annotated images.
+Installed and used Label Studio for manual annotation. Labeled smoke regions using bounding boxes. One major challenge faced was: Configuring Label Studio to correctly load local image paths Avoiding over-annotation of visually similar frames Final dataset: 151 annotated frames (120 train / 31 validation).
 
 Dataset Preparation
 Converted annotations into YOLO format. Organized dataset into: images/train, images/val labels/train, labels/val Created a custom data.yaml file for training.
